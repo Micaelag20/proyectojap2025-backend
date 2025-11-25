@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 //Clave secreta
-const JWT_SECRET = 'tu_clave_secreta_aqui';
+const JWT_SECRET = '12345';
 
 //usuarios 
 
@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
   success: true,
   message: 'Login exitoso',
   token: token,
-  user: {  // ← Asegúrate de incluir este objeto 'user'
+  user: { 
     id: user.id,
     username: user.username
   }
