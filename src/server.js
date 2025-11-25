@@ -11,7 +11,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Backend funcionando!' });
 });
 
-// Importar rutas (SIN .js)
+// Importar rutas
+app.use('/api/auth', require('./routes/auth'));
 app.use('/api/cats', require('./routes/cats'));
 app.use('/api/cats_products', require('./routes/cats_products'));
 app.use('/api/products', require('./routes/products'));
