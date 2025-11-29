@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS cliente (
 CREATE TABLE IF NOT EXISTS pedido (
   id INT AUTO_INCREMENT PRIMARY KEY,
   cliente_id INT,
-  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  -- SIN FOREIGN KEY para cliente_id
 );
 
 -- TABLA PRODUCTO
@@ -35,16 +35,14 @@ CREATE TABLE IF NOT EXISTS pedido_producto (
   id INT AUTO_INCREMENT PRIMARY KEY,
   pedido_id INT NOT NULL,
   producto_id INT NOT NULL,
-  cantidad INT NOT NULL,
-  FOREIGN KEY (pedido_id) REFERENCES pedido(id),
-  FOREIGN KEY (producto_id) REFERENCES producto(id)
+  cantidad INT NOT NULL
+  -- SIN FOREIGN KEY constraints
 );
 
 -- TABLA INTERMEDIA PERTENECE_A (PRODUCTO N --- N CATEGORIA)
 CREATE TABLE IF NOT EXISTS categoria_producto (
   id INT AUTO_INCREMENT PRIMARY KEY,
   producto_id INT NOT NULL,
-  categoria_id INT NOT NULL,
-  FOREIGN KEY (producto_id) REFERENCES producto(id),
-  FOREIGN KEY (categoria_id) REFERENCES categoria(id)
-);      
+  categoria_id INT NOT NULL
+  -- SIN FOREIGN KEY constraints
+);
